@@ -4,7 +4,9 @@ import HomeScreen from './pages/HomeScreen';
 import Navigation from './components/Navigation';
 
 
+
 function App() {
+ 
   return (
     <BrowserRouter>
       <Navigation />

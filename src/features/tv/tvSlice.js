@@ -17,7 +17,7 @@ const initialState = {
 export const fetchNetflixOrignals = createAsyncThunk(
     'tv/fetchNetflixOrignals',
     async () => {
-        const response = await axios.get(requests.getNfOrignals)
+        const response = await axios.get(requests.getNetflixOrignals)
         return response.data
     }
 )
@@ -33,7 +33,7 @@ export const tvSlice = createSlice({
 
             })
             .addCase(fetchNetflixOrignals.fulfilled, (state, action) => {
-                state.nfOriginals.status = ' success';
+                state.nfOriginals.status = 'success';
                 state.nfOriginals.data = action.payload;
 
             })
