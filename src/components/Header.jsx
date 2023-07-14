@@ -2,6 +2,7 @@ import React from 'react';
 import { truncateText } from '../utlility/utils';
 
 function Header(props) {
+    
     const { video } = props
     console.log(video);
 
