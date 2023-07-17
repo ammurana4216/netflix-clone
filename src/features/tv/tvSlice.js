@@ -17,7 +17,7 @@ const initialState = {
 export const fetchNetflixOrignals = createAsyncThunk(
     'tv/fetchNetflixOrignals',
     async () => {
-        const response = await axios.get(requests.getPopularMovies)
+        const response = await axios.get(requests.getNetflixOrignals)
         return response.data
     }
 )
