@@ -14,30 +14,30 @@ const initialState = {
 }
 
 
-export const fetchNetflixOrignals = createAsyncThunk(
-    'tv/fetchNetflixOrignals',
+export const fetchPopularMovies = createAsyncThunk(
+    'tv/fetchPopularMovies',
     async () => {
-        const response = await axios.get(requests.getPopularMovies)
+        const response = await axios.get(requests.getNetflixOrignals)
         return response.data
     }
 )
 
-export const tvSlice = createSlice({
+export const movieSlice = createSlice({
     name: "tv",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchNetflixOrignals.pending, (state, action) => {
+            .addCase(fetchPopularMovies.pending, (state, action) => {
                 state.nfOriginals.status = 'loading';
 
             })
-            .addCase(fetchNetflixOrignals.fulfilled, (state, action) => {
+            .addCase(fetchPopularMovies.fulfilled, (state, action) => {
                 state.nfOriginals.status = 'success';
                 state.nfOriginals.data = action.payload;
 
             })
-            .addCase(fetchNetflixOrignals.rejected, (state, action) => {
+            .addCase(fetchPopularMovies.rejected, (state, action) => {
                 state.nfOriginals.status = 'failed';
                 state.nfOriginals.error = action.error;
             })
@@ -48,4 +48,4 @@ export const tvSlice = createSlice({
 export const nfOriginalsSelector = (state)=> state.tv.nfOriginals;
 
 
-export default tvSlice.reducer;
+export default movieSlice.reducer;

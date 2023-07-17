@@ -2,7 +2,7 @@ import React from 'react';
 import { truncateText } from '../utlility/utils';
 
 function Header(props) {
-    
+
     const { video } = props
     console.log(video);
 
@@ -13,7 +13,7 @@ function Header(props) {
             <div className="caption text-white">
 
                 <h1 className='display-2'>{video?.name || video?.title || video?.orignal_title || video?.orignal_name}</h1>
-                <p className='fs-4'>{truncateText(video?.overview ,150)}</p>
+                <p className='fs-4'>{truncateText(video?.overview, 150)}</p>
 
             </div>
             <div className="header-vignette">

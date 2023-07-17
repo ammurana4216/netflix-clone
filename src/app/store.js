@@ -3,7 +3,8 @@ import tvReducer from '../features/tv/tvSlice';
 
 export const store=configureStore({
     reducer:{
-        tv: tvReducer
+        tv: tvReducer,
+        
     }
 
 
