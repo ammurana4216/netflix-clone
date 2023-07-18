@@ -66,12 +66,11 @@ export const movieSlice = createSlice({
                 state.topRatedMovies.status = 'failed';
                 state.topRatedMovies.error = action.error;
             })
-
-
     }
 
 });
 export const popularMoviesSelector = (state) => state.movie.popularMovies;
 
 export const topRatedMoviesSelector = (state) => state.movie.topRatedMovies;
+
 export default movieSlice.reducer;

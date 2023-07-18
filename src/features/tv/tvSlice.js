@@ -1,20 +1,17 @@
-import {createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { requests } from "../../utlility/requests";
 import axios from "../../utlility/axios";
 
 const initialState = {
     nfOriginals: {
-
         status: "idle",
         error: null,
         data: null
-
     },
     nfWebSeries:{
         status: "idle",
         error: null,
         data: null
-
     }
 
 }
@@ -25,14 +22,14 @@ export const fetchNetflixOrignals = createAsyncThunk(
     async () => {
         const response = await axios.get(requests.getNetflixOrignals)
         return response.data
-    },
+    }
 )
-    export const fetchWebSeries = createAsyncThunk(
-        'tv/fetchWebSeries',
-        async () => {
-            const response = await axios.get(requests.getWebSeries)
-            return response.data
-        }
+export const fetchTopRatedSeries = createAsyncThunk(
+    'tv/fetchTopRatedSeries',
+    async () => {
+        const response = await axios.get(requests.getNetflixOrignals)
+        return response.data
+    }
 )
 
 export const tvSlice = createSlice({
@@ -54,16 +51,16 @@ export const tvSlice = createSlice({
                 state.nfOriginals.status = 'failed';
                 state.nfOriginals.error = action.error;
             })
-            .addCase(fetchWebSeries.pending, (state, action) => {
+            .addCase(fetchTopRatedSeries.pending, (state, action) => {
                 state.nfWebSeries.status = 'loading';
 
             })
-            .addCase(fetchWebSeries.fulfilled, (state, action) => {
+            .addCase(fetchTopRatedSeries.fulfilled, (state, action) => {
                 state.nfWebSeries.status = 'success';
                 state.nfWebSeries.data = action.payload;
 
             })
-            .addCase(fetchWebSeries.rejected, (state, action) => {
+            .addCase(fetchTopRatedSeries.rejected, (state, action) => {
                 state.nfWebSeries.status = 'failed';
                 state.nfWebSeries.error = action.error;
             })
@@ -71,8 +68,7 @@ export const tvSlice = createSlice({
     }
 
 });
-export const nfOriginalsSelector = (state)=> state.tv.nfOriginals;
-export const nfWebSeriesSelector = (state)=> state.tv.nfWebSeries;
-
+export const nfOriginalsSelector = (state) => state.tv.nfOriginals;
+export const nfWebSeriesSelector = (state) => state.tv.nfWebSeries;
 
 export default tvSlice.reducer;

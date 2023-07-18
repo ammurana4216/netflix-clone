@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchNetflixOrignals, fetchWebSeries, nfOriginalsSelector, nfWebSeriesSelector } from '../features/tv/tvSlice';
+import { fetchNetflixOrignals, fetchTopRatedSeries, nfOriginalsSelector, nfWebSeriesSelector } from '../features/tv/tvSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
 import Row from '../components/Row';
@@ -7,7 +7,6 @@ import { fetchPopularMovies, fetchtopRatedMovies, popularMoviesSelector, topRate
 
 
 function HomeScreen(props) {
-   
     const [randomIndex, setRandomIndex] = useState(null);
 
     const dispatch = useDispatch();
@@ -32,7 +31,9 @@ function HomeScreen(props) {
     }, [nfOriginals])
 
 
-return (
+
+
+    return (
 
         <>
             {
@@ -44,7 +45,7 @@ return (
 
                 <Row title="Popular Movies" action={fetchPopularMovies} selector={popularMoviesSelector} />
                 <Row title="Top Rated Movies" action={fetchtopRatedMovies} selector={topRatedMoviesSelector} />
-                <Row title="Web Series" action={fetchWebSeries} selector={nfWebSeriesSelector} />
+                <Row title="Web Series" action={fetchTopRatedSeries} selector={nfWebSeriesSelector} />
             </div>
         </>
 
