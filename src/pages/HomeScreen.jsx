@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { fetchNetflixOrignals, nfOriginalsSelector } from '../features/tv/tvSlice';
+import { fetchNetflixOrignals, fetchWebSeries, nfOriginalsSelector, nfWebSeriesSelector } from '../features/tv/tvSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
 import Row from '../components/Row';
-
-
+import { fetchPopularMovies, fetchtopRatedMovies, popularMoviesSelector, topRatedMoviesSelector } from '../features/movie/movieSlice';
 
 
 function HomeScreen(props) {
+   
     const [randomIndex, setRandomIndex] = useState(null);
 
     const dispatch = useDispatch();
 
 
-    
+
     useEffect(() => {
         dispatch(fetchNetflixOrignals());
 
@@ -32,17 +32,20 @@ function HomeScreen(props) {
     }, [nfOriginals])
 
 
+return (
 
-
-    return (
         <>
             {
                 nfOriginals.status === "success" ?
                     <Header video={nfOriginals.data.results[randomIndex]} />
                     : "loading"
             }
+            <div className="container-fluid py-3">
 
-            <Row />
+                <Row title="Popular Movies" action={fetchPopularMovies} selector={popularMoviesSelector} />
+                <Row title="Top Rated Movies" action={fetchtopRatedMovies} selector={topRatedMoviesSelector} />
+                <Row title="Web Series" action={fetchWebSeries} selector={nfWebSeriesSelector} />
+            </div>
         </>
 
     );

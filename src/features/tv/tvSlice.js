@@ -9,6 +9,12 @@ const initialState = {
         error: null,
         data: null
 
+    },
+    nfWebSeries:{
+        status: "idle",
+        error: null,
+        data: null
+
     }
 
 }
@@ -19,7 +25,14 @@ export const fetchNetflixOrignals = createAsyncThunk(
     async () => {
         const response = await axios.get(requests.getNetflixOrignals)
         return response.data
-    }
+    },
+)
+    export const fetchWebSeries = createAsyncThunk(
+        'tv/fetchWebSeries',
+        async () => {
+            const response = await axios.get(requests.getWebSeries)
+            return response.data
+        }
 )
 
 export const tvSlice = createSlice({
@@ -41,11 +54,25 @@ export const tvSlice = createSlice({
                 state.nfOriginals.status = 'failed';
                 state.nfOriginals.error = action.error;
             })
+            .addCase(fetchWebSeries.pending, (state, action) => {
+                state.nfWebSeries.status = 'loading';
+
+            })
+            .addCase(fetchWebSeries.fulfilled, (state, action) => {
+                state.nfWebSeries.status = 'success';
+                state.nfWebSeries.data = action.payload;
+
+            })
+            .addCase(fetchWebSeries.rejected, (state, action) => {
+                state.nfWebSeries.status = 'failed';
+                state.nfWebSeries.error = action.error;
+            })
 
     }
 
 });
 export const nfOriginalsSelector = (state)=> state.tv.nfOriginals;
+export const nfWebSeriesSelector = (state)=> state.tv.nfWebSeries;
 
 
 export default tvSlice.reducer;
