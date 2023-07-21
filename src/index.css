@@ -1,5 +1,4 @@
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
-
 @import url('https://fonts.googleapis.com/css2?family=Amita&family=Calistoga&family=Poppins:wght@200;400;500&display=swap');
 body, html{
     height: 100%;
@@ -182,16 +181,3 @@ input[type=number] {
 #videoDetails .modal-body{
     padding: 0;
 }
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */

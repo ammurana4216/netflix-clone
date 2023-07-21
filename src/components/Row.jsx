@@ -22,8 +22,8 @@ function Row(props) {
       <Swiper
         modules={[Navigation]}
         navigation
-        spaceBetween={20}
-        slidesPerView={5}
+        spaceBetween={30}
+        slidesPerView={4}
 
       >
 

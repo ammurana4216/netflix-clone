@@ -15,9 +15,13 @@ const initialState = {
         error: null,
         data: null
     },
+    upComingMovies:{
+        status: "idle",
+        error: null,
+        data: null   
+    },
+    
 }
-
-
 export const fetchPopularMovies = createAsyncThunk(
     'movie/fetchPopularMovies',
     async () => {
@@ -29,6 +33,13 @@ export const fetchtopRatedMovies = createAsyncThunk(
     'movie/fetchtopRatedMovies',
     async () => {
         const response = await axios.get(requests.getMovies(endpoints.topRated));
+        return response.data
+    }
+)
+export const fetchupComingMovies = createAsyncThunk(
+    'movie/fetchupComingMovies',
+    async () => {
+        const response = await axios.get(requests.getMovies(endpoints.upcoming));
         return response.data
     }
 )
@@ -66,11 +77,25 @@ export const movieSlice = createSlice({
                 state.topRatedMovies.status = 'failed';
                 state.topRatedMovies.error = action.error;
             })
+            .addCase(fetchupComingMovies.pending, (state, action) => {
+                state.upComingMovies.status = 'loading';
+
+            })
+            .addCase(fetchupComingMovies.fulfilled, (state, action) => {
+                state.upComingMovies.status = 'success';
+                state.upComingMovies.data = action.payload;
+
+            })
+            .addCase(fetchupComingMovies.rejected, (state, action) => {
+                state.upComingMovies.status = 'failed';
+                state.upComingMovies.error = action.error;
+            })
     }
 
 });
 export const popularMoviesSelector = (state) => state.movie.popularMovies;
 
 export const topRatedMoviesSelector = (state) => state.movie.topRatedMovies;
+export const upComingMoviesSelector = (state) => state.movie.upComingMovies;
 
 export default movieSlice.reducer;
