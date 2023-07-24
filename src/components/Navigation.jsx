@@ -12,7 +12,18 @@ function Navigation(props) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                            <Link className="nav-link active" aria-current="page" to="/">Home</Link></li>
+                    </ul>
+                    <ul className="navbar-nav me-2">
+                        <li>
+
+                            <Link className="nav-link active " aria-current="page" to="/LoginScreen">Login</Link>
+                        </li>
+                    </ul>
+                    <ul className="navbar-nav me-2">
+                        <li>
+
+                            <Link className="nav-link active " aria-current="page" to="/RegisterScreen">Register</Link>
                         </li>
                     </ul>
                 </div>

@@ -19,29 +19,6 @@ export const fetchHeaderDetails = createAsyncThunk(
         return response.data
     }
 )
-// export const fetchTopRatedSeries = createAsyncThunk(
-//     'tv/fetchTopRatedSeries',
-//     async () => {
-//         const response = await axios.get(requests.getTv(endpoints.topRated))
-//         return response.data
-//     }
-// )
-// export const fetchOnTheAirSeries = createAsyncThunk(
-//     'tv/fetchOnTheAirSeries',
-//     async () => {
-//         const response = await axios.get(requests.getTv(endpoints.onTheAir))
-//         return response.data
-//     }
-// )
-// export const fetchAiringTodaySeries = createAsyncThunk(
-//     'tv/fetchAiringTodaySeries',
-//     async () => {
-//         const response = await axios.get(requests.getTv(endpoints.airingToday))
-//         return response.data
-//     }
-// )
-
-
 
 export const commonSlice = createSlice({
     name: "common",
@@ -60,40 +37,7 @@ export const commonSlice = createSlice({
                 state.headerVideo.status = 'failed';
                 state.headerVideo.error = action.error;
             })
-        // .addCase(fetchTopRatedSeries.pending, (state, action) => {
-        //     state.nfWebSeries.status = 'loading';
-        // })
-        // .addCase(fetchTopRatedSeries.fulfilled, (state, action) => {
-        //     state.nfWebSeries.status = 'success';
-        //     state.nfWebSeries.data = action.payload;
-        // })
-        // .addCase(fetchTopRatedSeries.rejected, (state, action) => {
-        //     state.nfWebSeries.status = 'failed';
-        //     state.nfWebSeries.error = action.error;
-        // })
-        // .addCase(fetchOnTheAirSeries.pending, (state, action) => {
-        //     state.nfOnTheAirSeries.status = 'loading';
-        // })
-        // .addCase(fetchOnTheAirSeries.fulfilled, (state, action) => {
-        //     state.nfOnTheAirSeries.status = 'success';
-        //     state.nfOnTheAirSeries.data = action.payload;
-        // })
-        // .addCase(fetchOnTheAirSeries.rejected, (state, action) => {
-        //     state.nfOnTheAirSeries.status = 'failed';
-        //     state.nfOnTheAirSeries.error = action.error;
-        // })
-        // .addCase(fetchAiringTodaySeries.pending, (state, action) => {
-        //     state.nfAiringTodaySeries.status = 'loading';
-
-        // })
-        // .addCase(fetchAiringTodaySeries.fulfilled, (state, action) => {
-        //     state.nfAiringTodaySeries.status = 'success';
-        //     state.nfAiringTodaySeries.data = action.payload;
-        // })
-        // .addCase(fetchAiringTodaySeries.rejected, (state, action) => {
-        //     state.nfAiringTodaySeries.status = 'failed';
-        //     state.nfAiringTodaySeries.error = action.error;
-        // })
+       
     }
 
 });
