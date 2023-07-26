@@ -33,7 +33,7 @@ function HomeScreen(props) {
     return (
 
         <>
-            {
+        {
                 nfOriginals.status === "loading" ? (
                     <div className="h-100 d-flex justify-content-center align-items-center">
                     <div className="spinner-border text-white" role="status">
@@ -42,10 +42,11 @@ function HomeScreen(props) {
                   </div>
                 ) : nfOriginals.status === "success" ? (
             <Header video={nfOriginals.data.results[randomIndex]} platform="tv" />
+            
             ) : (
                 "error"
                 )}
-            <div className="container-fluid py-3">
+                <div className="container-fluid py-3">
 
                 <Row title="Popular Movies" action={fetchPopularMovies} selector={popularMoviesSelector} platform="movie" />
                 <Row title="Top Rated Movies" action={fetchtopRatedMovies} selector={topRatedMoviesSelector} platform="movie" />

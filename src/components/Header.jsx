@@ -4,6 +4,7 @@ import Ratings from './Ratings';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHeaderDetails, headerVideoSelector } from '../features/common/commonSlice';
 import Genre from './Genre';
+import VideoPlayer from './VideoPlayer';
 function Header(props) {
 
     const { video, platform } = props
@@ -31,11 +32,12 @@ function Header(props) {
                         <Genre key= {item.id} genre={item} />
                     ))
                 }
+                
                 </div>
                 <Ratings voteAverage={data?.vote_average} voteCount={data?.vote_count} />
-            </div>
+               </div>
             <div className="header-vignette">
-                <div className="header-buttom-vignette"></div>
+                <div className="header-info-vignette"></div>
 
             </div>
         </div>
