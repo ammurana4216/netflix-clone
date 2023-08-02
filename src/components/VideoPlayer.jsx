@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 function VideoPlayer(props) {
 
-    const { videoList } = props;
+    const { videosList } = props;
 
 
     const [key, setKey] = useState('')
     useEffect(() => {
-        if (videoList && videoList.length > 0) {
-            const trailer = videoList?.filter((item) => {
+        if (videosList && videosList.length > 0) {
+            const trailer = videosList?.find((item) => {
                 return item.type === "Trailer"
             })
             setKey(trailer.key);
@@ -16,12 +16,12 @@ function VideoPlayer(props) {
         }
 
 
-    }, [videoList]);
+    }, [videosList]);
 
 
     return (
-        <div class="ratio ratio-16x9 video-player">
-            <iframe src={`https://www.youtube.com/embed/${key}?rel=0&autoplay=1`} title="YouTube video" allowfullscreen></iframe>
+        <div className="ratio ratio-16x9 video-player">
+            <iframe src={`https://www.youtube.com/embed/${key}?rel=0&autoplay=1`} title="YouTube video" frameborder="0" allow="autoplay" ></iframe>
         </div>
     );
 }

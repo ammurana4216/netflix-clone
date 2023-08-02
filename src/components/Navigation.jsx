@@ -13,7 +13,12 @@ function Navigation(props) {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link></li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/browse/tv">Tv</Link></li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/browse/movies">Movies</Link></li>
                     </ul>
+
                     <ul className="navbar-nav me-2">
                         <li>
 

@@ -5,6 +5,7 @@ export const requests = {
     getMovies: (endpoints) => `movie/${endpoints}?api_key=${API_KEY}&language=en-US&page=1`,
     getTv: (endpoints) => `tv/${endpoints}?api_key=${API_KEY}&language=en-US&page=1`,
     getVideoDetails: (type) => `${type.platform}/${type.id}?api_key=${API_KEY}&language=en-US&page=1&append_to_response=videos`,
+    getGenres: (platform)=> `genre/${platform}/list?api_key`
 }
 
 export const endpoints = {

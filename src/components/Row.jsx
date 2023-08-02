@@ -5,16 +5,23 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from './Card';
+import axios from 'axios';
+import Genre from './Genre';
 
 
 function Row(props) {
-  const { title, selector , action, platform} = props;
+  const { title, selector, action, platform, genre } = props;
   const dispatch = useDispatch();
   const popular = useSelector(selector);
   useEffect(() => {
     dispatch(action());
   }, []);
 
+  // if(Genre){
+  //   axios.get(`${platform}?with_genres=${genre.name}`)
+  // }else{
+  //   dispatch(action(genre.id))
+  // }
 
   return (
     <div className="py-3 video-row text-white">
@@ -23,7 +30,7 @@ function Row(props) {
         modules={[Navigation]}
         navigation
         spaceBetween={30}
-        slidesPerView={5}
+        slidesPerView={4}
 
       >
 
@@ -38,10 +45,6 @@ function Row(props) {
               )
             }) : ""
         }
-
-
-
-
       </Swiper>
     </div>
   );
